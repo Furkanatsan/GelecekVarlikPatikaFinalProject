@@ -18,8 +18,8 @@ Gelecek Varlık .NET Core eğitim sürecinde anlatılan tüm konular aktif bir �
 
 
 <h3>Database Diagram<h3/>
-  ![Ekran Görüntüsü (424)](https://user-images.githubusercontent.com/79534661/173249483-1d565395-a3ff-4e00-9005-b526eaf9b5e5.png)
+   <img src="https://github.com/Furkanatsan/GelecekVarlikPatikaFinalProject/blob/main/Ekran%20G%C3%B6r%C3%BCnt%C3%BCs%C3%BC%20(424).png" width="1000" alt="accessibility text">
 
 <h3>Solution<h3/>
-  ![Ekran Görüntüsü (426)](https://user-images.githubusercontent.com/79534661/173249542-57cb5dd2-0488-4b98-9880-cc6ab516f6e6.png)
+<img src="https://github.com/Furkanatsan/GelecekVarlikPatikaFinalProject/blob/main/Ekran%20G%C3%B6r%C3%BCnt%C3%BCs%C3%BC%20(426).png" width="500" alt="accessibility text">
 
