@@ -1,0 +1,15 @@
+F:\Patika\Apmasy\Apmasy.Interface\bin\Debug\net5.0\Apmasy.Interface.deps.json
+F:\Patika\Apmasy\Apmasy.Interface\bin\Debug\net5.0\Apmasy.Interface.dll
+F:\Patika\Apmasy\Apmasy.Interface\bin\Debug\net5.0\ref\Apmasy.Interface.dll
+F:\Patika\Apmasy\Apmasy.Interface\bin\Debug\net5.0\Apmasy.Interface.pdb
+F:\Patika\Apmasy\Apmasy.Interface\obj\Debug\net5.0\Apmasy.Interface.csproj.AssemblyReference.cache
+F:\Patika\Apmasy\Apmasy.Interface\obj\Debug\net5.0\Apmasy.Interface.GeneratedMSBuildEditorConfig.editorconfig
+F:\Patika\Apmasy\Apmasy.Interface\obj\Debug\net5.0\Apmasy.Interface.AssemblyInfoInputs.cache
+F:\Patika\Apmasy\Apmasy.Interface\obj\Debug\net5.0\Apmasy.Interface.AssemblyInfo.cs
+F:\Patika\Apmasy\Apmasy.Interface\obj\Debug\net5.0\Apmasy.Interface.csproj.CoreCompileInputs.cache
+F:\Patika\Apmasy\Apmasy.Interface\obj\Debug\net5.0\Apmasy.Interface.dll
+F:\Patika\Apmasy\Apmasy.Interface\obj\Debug\net5.0\ref\Apmasy.Interface.dll
+F:\Patika\Apmasy\Apmasy.Interface\obj\Debug\net5.0\Apmasy.Interface.pdb
+F:\Patika\Apmasy\Apmasy.Interface\bin\Debug\net5.0\Apmasy.Entity.dll
+F:\Patika\Apmasy\Apmasy.Interface\bin\Debug\net5.0\Apmasy.Entity.pdb
+F:\Patika\Apmasy\Apmasy.Interface\obj\Debug\net5.0\Apmasy.Interface.csproj.CopyComplete

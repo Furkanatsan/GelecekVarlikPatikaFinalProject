@@ -1,0 +1,15 @@
+F:\Patika\Apmasy\Apmasy.Entity\bin\Debug\net5.0\Apmasy.Entity.deps.json
+F:\Patika\Apmasy\Apmasy.Entity\bin\Debug\net5.0\Apmasy.Entity.dll
+F:\Patika\Apmasy\Apmasy.Entity\bin\Debug\net5.0\ref\Apmasy.Entity.dll
+F:\Patika\Apmasy\Apmasy.Entity\bin\Debug\net5.0\Apmasy.Entity.pdb
+F:\Patika\Apmasy\Apmasy.Entity\obj\Debug\net5.0\Apmasy.Entity.GeneratedMSBuildEditorConfig.editorconfig
+F:\Patika\Apmasy\Apmasy.Entity\obj\Debug\net5.0\Apmasy.Entity.AssemblyInfoInputs.cache
+F:\Patika\Apmasy\Apmasy.Entity\obj\Debug\net5.0\Apmasy.Entity.AssemblyInfo.cs
+F:\Patika\Apmasy\Apmasy.Entity\obj\Debug\net5.0\Apmasy.Entity.csproj.CoreCompileInputs.cache
+F:\Patika\Apmasy\Apmasy.Entity\obj\Debug\net5.0\Apmasy.Entity.dll
+F:\Patika\Apmasy\Apmasy.Entity\obj\Debug\net5.0\ref\Apmasy.Entity.dll
+F:\Patika\Apmasy\Apmasy.Entity\obj\Debug\net5.0\Apmasy.Entity.pdb
+F:\Patika\Apmasy\Apmasy.Entity\bin\Debug\net5.0\Apmasy.Entity.runtimeconfig.json
+F:\Patika\Apmasy\Apmasy.Entity\bin\Debug\net5.0\Apmasy.Entity.runtimeconfig.dev.json
+F:\Patika\Apmasy\Apmasy.Entity\obj\Debug\net5.0\Apmasy.Entity.genruntimeconfig.cache
+F:\Patika\Apmasy\Apmasy.Entity\obj\Debug\net5.0\Apmasy.Entity.csproj.AssemblyReference.cache

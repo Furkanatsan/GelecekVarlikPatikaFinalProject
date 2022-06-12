@@ -1,0 +1,256 @@
+USE [master]
+GO
+/****** Object:  Database [ApmasyDb]    Script Date: 12.06.2022 21:43:23 ******/
+CREATE DATABASE [ApmasyDb]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'ApmasyDb', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\ApmasyDb.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'ApmasyDb_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\ApmasyDb_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT
+GO
+ALTER DATABASE [ApmasyDb] SET COMPATIBILITY_LEVEL = 150
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [ApmasyDb].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [ApmasyDb] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [ApmasyDb] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [ApmasyDb] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [ApmasyDb] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [ApmasyDb] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [ApmasyDb] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [ApmasyDb] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [ApmasyDb] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [ApmasyDb] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [ApmasyDb] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [ApmasyDb] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [ApmasyDb] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [ApmasyDb] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [ApmasyDb] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [ApmasyDb] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [ApmasyDb] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [ApmasyDb] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [ApmasyDb] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [ApmasyDb] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [ApmasyDb] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [ApmasyDb] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [ApmasyDb] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [ApmasyDb] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [ApmasyDb] SET  MULTI_USER 
+GO
+ALTER DATABASE [ApmasyDb] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [ApmasyDb] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [ApmasyDb] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [ApmasyDb] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [ApmasyDb] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [ApmasyDb] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+ALTER DATABASE [ApmasyDb] SET QUERY_STORE = OFF
+GO
+USE [ApmasyDb]
+GO
+/****** Object:  Table [dbo].[Apartment]    Script Date: 12.06.2022 21:43:23 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Apartment](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Block] [nvarchar](50) NOT NULL,
+	[ApNo] [int] NOT NULL,
+	[ResidentId] [int] NULL,
+	[ApType] [nvarchar](50) NOT NULL,
+	[IsEmpty] [bit] NOT NULL,
+	[InDateTime] [datetime] NOT NULL,
+	[UpDateTime] [datetime] NULL,
+	[IsActive] [bit] NULL,
+	[IsDeleted] [bit] NULL,
+ CONSTRAINT [PK_Apartment] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[BillPayment]    Script Date: 12.06.2022 21:43:23 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[BillPayment](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[BillType] [nvarchar](50) NOT NULL,
+	[Price] [decimal](18, 2) NOT NULL,
+	[ApartmentId] [int] NOT NULL,
+	[IsPaid] [bit] NOT NULL,
+	[PayerId] [int] NOT NULL,
+	[PaidDate] [datetime] NULL,
+	[PaymentDueDate] [date] NOT NULL,
+	[InDateTime] [datetime] NOT NULL,
+	[UpDateTime] [datetime] NULL,
+	[IsDeleted] [bit] NULL,
+ CONSTRAINT [PK_BillPayment] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Message]    Script Date: 12.06.2022 21:43:23 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Message](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[MessageContent] [nchar](250) NOT NULL,
+	[IsRead] [bit] NOT NULL,
+	[InDateTime] [datetime] NOT NULL,
+	[SenderId] [int] NOT NULL,
+	[ReceiverId] [int] NOT NULL,
+ CONSTRAINT [PK_Message] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[User]    Script Date: 12.06.2022 21:43:23 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[User](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[FullName] [nvarchar](50) NOT NULL,
+	[PhoneNo] [nvarchar](50) NOT NULL,
+	[Email] [nvarchar](150) NOT NULL,
+	[Password] [nvarchar](50) NOT NULL,
+	[IdentificationNumber] [nvarchar](11) NOT NULL,
+	[VehiclePlate] [nvarchar](20) NULL,
+	[ApartmentId] [int] NULL,
+	[IsActive] [bit] NULL,
+	[IsDeleted] [bit] NULL,
+	[InDateTime] [datetime] NOT NULL,
+	[UpDateTime] [datetime] NULL,
+	[IsAdmin] [bit] NOT NULL,
+ CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Apartment] ON 
+GO
+INSERT [dbo].[Apartment] ([Id], [Block], [ApNo], [ResidentId], [ApType], [IsEmpty], [InDateTime], [UpDateTime], [IsActive], [IsDeleted]) VALUES (1, N'A', 16, 3, N'2+1', 0, CAST(N'2022-06-07T20:35:49.490' AS DateTime), NULL, 1, 0)
+GO
+INSERT [dbo].[Apartment] ([Id], [Block], [ApNo], [ResidentId], [ApType], [IsEmpty], [InDateTime], [UpDateTime], [IsActive], [IsDeleted]) VALUES (3, N'B', 11, 1, N'3+1', 0, CAST(N'2022-06-07T20:36:40.483' AS DateTime), NULL, 1, 0)
+GO
+INSERT [dbo].[Apartment] ([Id], [Block], [ApNo], [ResidentId], [ApType], [IsEmpty], [InDateTime], [UpDateTime], [IsActive], [IsDeleted]) VALUES (5, N'B', 12, 4, N'4+2', 0, CAST(N'2022-06-07T20:56:20.137' AS DateTime), NULL, 1, 0)
+GO
+INSERT [dbo].[Apartment] ([Id], [Block], [ApNo], [ResidentId], [ApType], [IsEmpty], [InDateTime], [UpDateTime], [IsActive], [IsDeleted]) VALUES (9, N'A', 20, NULL, N'2+1', 1, CAST(N'2022-06-08T21:37:37.160' AS DateTime), CAST(N'2022-06-08T21:37:37.160' AS DateTime), 1, 1)
+GO
+SET IDENTITY_INSERT [dbo].[Apartment] OFF
+GO
+SET IDENTITY_INSERT [dbo].[BillPayment] ON 
+GO
+INSERT [dbo].[BillPayment] ([Id], [BillType], [Price], [ApartmentId], [IsPaid], [PayerId], [PaidDate], [PaymentDueDate], [InDateTime], [UpDateTime], [IsDeleted]) VALUES (3, N'Elektrik', CAST(250.00 AS Decimal(18, 2)), 2, 0, 3, CAST(N'2022-06-10T00:00:00.000' AS DateTime), CAST(N'2022-06-07' AS Date), CAST(N'2022-06-07T20:33:12.280' AS DateTime), NULL, 0)
+GO
+INSERT [dbo].[BillPayment] ([Id], [BillType], [Price], [ApartmentId], [IsPaid], [PayerId], [PaidDate], [PaymentDueDate], [InDateTime], [UpDateTime], [IsDeleted]) VALUES (4, N'Su', CAST(300.00 AS Decimal(18, 2)), 1, 0, 1, CAST(N'2022-06-11T00:00:00.000' AS DateTime), CAST(N'2022-06-12' AS Date), CAST(N'2022-06-07T20:34:50.240' AS DateTime), NULL, 0)
+GO
+INSERT [dbo].[BillPayment] ([Id], [BillType], [Price], [ApartmentId], [IsPaid], [PayerId], [PaidDate], [PaymentDueDate], [InDateTime], [UpDateTime], [IsDeleted]) VALUES (5, N'Su', CAST(25.00 AS Decimal(18, 2)), 3, 0, 4, CAST(N'2022-07-08T14:53:04.370' AS DateTime), CAST(N'2022-08-08' AS Date), CAST(N'2022-06-08T17:53:48.577' AS DateTime), CAST(N'2022-06-08T17:53:48.577' AS DateTime), NULL)
+GO
+SET IDENTITY_INSERT [dbo].[BillPayment] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Message] ON 
+GO
+INSERT [dbo].[Message] ([Id], [MessageContent], [IsRead], [InDateTime], [SenderId], [ReceiverId]) VALUES (2, N'merhaba özgür                                                                                                                                                                                                                                             ', 0, CAST(N'2022-06-07T20:30:09.930' AS DateTime), 1, 3)
+GO
+INSERT [dbo].[Message] ([Id], [MessageContent], [IsRead], [InDateTime], [SenderId], [ReceiverId]) VALUES (3, N'merhaba furkan                                                                                                                                                                                                                                            ', 0, CAST(N'2022-06-07T20:30:39.440' AS DateTime), 3, 1)
+GO
+INSERT [dbo].[Message] ([Id], [MessageContent], [IsRead], [InDateTime], [SenderId], [ReceiverId]) VALUES (5, N'merhaba furkan                                                                                                                                                                                                                                            ', 0, CAST(N'2022-06-07T00:00:00.000' AS DateTime), 4, 1)
+GO
+INSERT [dbo].[Message] ([Id], [MessageContent], [IsRead], [InDateTime], [SenderId], [ReceiverId]) VALUES (6, N'Merhaba Alper                                                                                                                                                                                                                                             ', 0, CAST(N'2022-06-07T21:00:20.530' AS DateTime), 1, 4)
+GO
+INSERT [dbo].[Message] ([Id], [MessageContent], [IsRead], [InDateTime], [SenderId], [ReceiverId]) VALUES (7, N'merhaba yönetici bey                                                                                                                                                                                                                                      ', 0, CAST(N'2022-06-07T18:43:20.827' AS DateTime), 3, 1)
+GO
+SET IDENTITY_INSERT [dbo].[Message] OFF
+GO
+SET IDENTITY_INSERT [dbo].[User] ON 
+GO
+INSERT [dbo].[User] ([Id], [FullName], [PhoneNo], [Email], [Password], [IdentificationNumber], [VehiclePlate], [ApartmentId], [IsActive], [IsDeleted], [InDateTime], [UpDateTime], [IsAdmin]) VALUES (1, N'Furkan Atsan', N'5512058945', N'furkandurmusatsan@gmail.com', N'12345678', N'12345678998', N'06BOS856', 1, 1, NULL, CAST(N'2022-06-07T20:23:38.033' AS DateTime), NULL, 1)
+GO
+INSERT [dbo].[User] ([Id], [FullName], [PhoneNo], [Email], [Password], [IdentificationNumber], [VehiclePlate], [ApartmentId], [IsActive], [IsDeleted], [InDateTime], [UpDateTime], [IsAdmin]) VALUES (3, N'Ozgur Kurum', N'5151515151', N'ozgurKurum@hotmail.com', N'123456789', N'12345678989', N'06bs565', 2, 1, NULL, CAST(N'2022-06-07T20:29:39.897' AS DateTime), NULL, 0)
+GO
+INSERT [dbo].[User] ([Id], [FullName], [PhoneNo], [Email], [Password], [IdentificationNumber], [VehiclePlate], [ApartmentId], [IsActive], [IsDeleted], [InDateTime], [UpDateTime], [IsAdmin]) VALUES (4, N'Akper', N'5515115555', N'absd@gmail.com', N'12345', N'12345678964', N'06BMW123', 9, NULL, NULL, CAST(N'2022-06-08T22:17:10.970' AS DateTime), NULL, 0)
+GO
+INSERT [dbo].[User] ([Id], [FullName], [PhoneNo], [Email], [Password], [IdentificationNumber], [VehiclePlate], [ApartmentId], [IsActive], [IsDeleted], [InDateTime], [UpDateTime], [IsAdmin]) VALUES (5, N'Namık Kemal', N'05055055555', N'namikkemal@example.com', N'waFZ2st3', N'12345665432', N'06RN515', 8, 1, 0, CAST(N'2022-06-08T20:09:08.597' AS DateTime), NULL, 0)
+GO
+SET IDENTITY_INSERT [dbo].[User] OFF
+GO
+ALTER TABLE [dbo].[Apartment] ADD  CONSTRAINT [DF_Table_1_Idate]  DEFAULT (getdate()) FOR [InDateTime]
+GO
+ALTER TABLE [dbo].[Apartment] ADD  CONSTRAINT [DF_Apartment_IsActive]  DEFAULT ((1)) FOR [IsActive]
+GO
+ALTER TABLE [dbo].[Apartment] ADD  CONSTRAINT [DF_Apartment_IsDeleted]  DEFAULT ((1)) FOR [IsDeleted]
+GO
+ALTER TABLE [dbo].[BillPayment] ADD  CONSTRAINT [DF_BillPayment_InDateTime]  DEFAULT (getdate()) FOR [InDateTime]
+GO
+ALTER TABLE [dbo].[Message] ADD  CONSTRAINT [DF_Message_InDateTime]  DEFAULT (getdate()) FOR [InDateTime]
+GO
+ALTER TABLE [dbo].[User] ADD  CONSTRAINT [DF_User_IsActive]  DEFAULT ((1)) FOR [IsActive]
+GO
+ALTER TABLE [dbo].[User] ADD  CONSTRAINT [DF_User_InDateTime]  DEFAULT (getdate()) FOR [InDateTime]
+GO
+ALTER TABLE [dbo].[Apartment]  WITH CHECK ADD  CONSTRAINT [FK_Apartment_User] FOREIGN KEY([ResidentId])
+REFERENCES [dbo].[User] ([Id])
+GO
+ALTER TABLE [dbo].[Apartment] CHECK CONSTRAINT [FK_Apartment_User]
+GO
+ALTER TABLE [dbo].[BillPayment]  WITH CHECK ADD  CONSTRAINT [FK_BillPayment_User] FOREIGN KEY([PayerId])
+REFERENCES [dbo].[User] ([Id])
+GO
+ALTER TABLE [dbo].[BillPayment] CHECK CONSTRAINT [FK_BillPayment_User]
+GO
+ALTER TABLE [dbo].[Message]  WITH CHECK ADD  CONSTRAINT [FK_Message_User] FOREIGN KEY([ReceiverId])
+REFERENCES [dbo].[User] ([Id])
+GO
+ALTER TABLE [dbo].[Message] CHECK CONSTRAINT [FK_Message_User]
+GO
+ALTER TABLE [dbo].[Message]  WITH CHECK ADD  CONSTRAINT [FK_Message_User1] FOREIGN KEY([SenderId])
+REFERENCES [dbo].[User] ([Id])
+GO
+ALTER TABLE [dbo].[Message] CHECK CONSTRAINT [FK_Message_User1]
+GO
+USE [master]
+GO
+ALTER DATABASE [ApmasyDb] SET  READ_WRITE 
+GO
