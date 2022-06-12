@@ -21,5 +21,5 @@ Gelecek Varlık .NET Core eğitim sürecinde anlatılan tüm konular aktif bir �
    <img src="https://github.com/Furkanatsan/GelecekVarlikPatikaFinalProject/blob/main/Ekran%20G%C3%B6r%C3%BCnt%C3%BCs%C3%BC%20(424).png" width="1000" alt="accessibility text">
 
 <h3>Solution<h3/>
-<img src="https://github.com/Furkanatsan/GelecekVarlikPatikaFinalProject/blob/main/Ekran%20G%C3%B6r%C3%BCnt%C3%BCs%C3%BC%20(426).png" width="500" alt="accessibility text">
+<img src="https://github.com/Furkanatsan/GelecekVarlikPatikaFinalProject/blob/main/Ekran%20G%C3%B6r%C3%BCnt%C3%BCs%C3%BC%20(426).png" width="400" alt="accessibility text">
 
