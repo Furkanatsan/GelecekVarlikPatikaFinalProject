@@ -30,6 +30,88 @@ namespace Apmasy.Bll
             this.configuration = configuration;
         }
 
+        public IResponse<bool> DeleteUser(int id, bool saveChanges = true)
+        {
+            try
+            {
+                userRepository.DeleteUser(id);
+                if (saveChanges)
+                {
+                    Save();
+                }
+
+                return new Response<bool>
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Message = "Kullanıcı Silindi.",
+                    Data = true
+                };
+            }
+            catch (Exception)
+            {
+                return new Response<bool>
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Message = "İşlem Başarısız.",
+                    Data = false
+                };
+
+
+            }
+        }
+
+        public IResponse<DtoViewUser> GetByIdUser(int id)
+        {
+            try
+            {
+                var result = ObjectMapper.Mapper.Map<DtoViewUser>(userRepository.GetByIdUser(id));
+
+                return new Response<DtoViewUser>
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Message = "İşlem Başarılı",
+                    Data = result
+                };
+            }
+            catch (Exception)
+            {
+                return new Response<DtoViewUser>
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Message = "İşlem Başarısız.",
+                    Data = null
+                };
+
+            }
+        }
+
+        public IResponse<List<DtoViewUser>> GetListUser()
+        {
+            try
+            {
+                var list = userRepository.GetListUser();
+                var result = list.Select(x => ObjectMapper.Mapper.Map<DtoViewUser>(x)).ToList();
+                return new Response<List<DtoViewUser>>
+                {
+                    StatusCode = StatusCodes.Status200OK,
+                    Message = "İşlem Başarılı",
+                    Data = result
+                };
+
+
+            }
+            catch (Exception)
+            {
+
+                return new Response<List<DtoViewUser>>
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Message = "İşlem Başarısız.",
+                    Data = null
+                };
+            }
+        }
+
         public IResponse<DtoViewUser> InsertUser(DtoInsertUser insertUser, bool saveChanges = true)
         {
             try

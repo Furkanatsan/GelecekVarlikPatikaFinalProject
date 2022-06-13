@@ -62,5 +62,62 @@ namespace Apmasy.API.Controllers
 
         }
 
+        [HttpGet("GetByIdUser")]
+        public IResponse<DtoViewUser> GetById(int id)
+        {
+            try
+            {
+                return userService.GetByIdUser(id);
+            }
+            catch (Exception)
+            {
+                return new Response<DtoViewUser>
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Message = "İşlem Başarısız",
+                    Data = null
+                };
+            }
+        }
+
+        [HttpDelete("Delete")]
+        public IResponse<bool> Delete(int id)
+        {
+            try
+            {
+                return userService.DeleteUser(id);
+            }
+            catch (Exception)
+            {
+
+                return new Response<bool>
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Message = "İşlem Başarısız",
+                    Data = false
+
+                };
+
+            }
+        }
+
+        [HttpGet("GetList")]
+        public IResponse<List<DtoViewUser>> GetList()
+        {
+            try
+            {
+                return userService.GetListUser();
+            }
+            catch (Exception)
+            {
+                return new Response<List<DtoViewUser>>
+                {
+                    StatusCode = StatusCodes.Status500InternalServerError,
+                    Message = "İşlem Başarısız.",
+                    Data = null
+                };
+            }
+        }
+
     }
 }

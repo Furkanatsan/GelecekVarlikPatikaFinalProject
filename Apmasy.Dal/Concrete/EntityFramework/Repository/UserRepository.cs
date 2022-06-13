@@ -34,5 +34,29 @@ namespace Apmasy.Dal.Concrete.EntityFramework.Repository
             dbset.Update(item);
             return item;
         }
+
+        public bool DeleteUser(int id)
+        {
+            return Delete(GetById(id));
+        }
+
+        public bool DeleteUser(User item)
+        {
+            if (_context.Entry(item).State == EntityState.Detached)
+            {
+                _context.Attach(item);
+            }
+            return dbset.Remove(item) != null;//silme başarılıysa gönder.
+        }
+        public User GetByIdUser(int id)
+        {
+            return dbset.Find(id);
+        }
+
+        public List<User> GetListUser()
+        {
+            return dbset.ToList();
+        }
+
     }
 }

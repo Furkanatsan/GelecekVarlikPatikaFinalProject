@@ -26,7 +26,7 @@ namespace Apmasy.Entity.Models
         public int? ApartmentId { get; set; }
         public bool? IsActive { get; set; }
         public bool? IsDeleted { get; set; }
-        public DateTime InDateTime { get; set; } = DateTime.Now;
+        public DateTime InDateTime { get; set; } 
         public DateTime? UpDateTime { get; set; } 
         public bool IsAdmin { get; set; }
 

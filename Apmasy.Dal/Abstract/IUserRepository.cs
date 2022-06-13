@@ -15,5 +15,11 @@ namespace Apmasy.Dal.Abstract
         User InsertUser(User item);
 
         User UpdateUser(User item );
+        List<User> GetListUser();
+        
+        User GetByIdUser(int id);
+        bool DeleteUser(int id);
+
+        bool DeleteUser(User item);
     }
 }

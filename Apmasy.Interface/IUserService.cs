@@ -16,5 +16,8 @@ namespace Apmasy.Interface
         IResponse<DtoViewUser> InsertUser(DtoInsertUser insertUser, bool saveChanges = true);
 
         IResponse<DtoViewUser> UpdateUser(DtoViewUser updateUser, bool saveChanges = true);
+        IResponse<List<DtoViewUser>> GetListUser();
+        IResponse<DtoViewUser> GetByIdUser(int id);
+        IResponse<bool> DeleteUser(int id, bool saveChanges = true);
     }
 }
