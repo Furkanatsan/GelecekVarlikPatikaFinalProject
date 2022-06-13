@@ -23,3 +23,11 @@ Gelecek Varlık .NET Core eğitim sürecinde anlatılan tüm konular aktif bir �
 <h3>Solution<h3/>
 <img src="https://github.com/Furkanatsan/GelecekVarlikPatikaFinalProject/blob/main/Ekran%20G%C3%B6r%C3%BCnt%C3%BCs%C3%BC%20(426).png" width="400" alt="accessibility text">
 
+   <h3>Api Kullanımı<h3/>
+   <p>Email ve şifre ile login olunur.Token sayesinde üye olmadan işlem yapılamaz.Admin kullanıcı ekleyebilir.<p/>
+   <p> 4 kısımdan oluşur User, Apartment,BillPayment,Message<p/> 
+<h3>Swagger<h3/>      
+<img src="https://github.com/Furkanatsan/GelecekVarlikPatikaFinalProject/blob/main/Ekran%20G%C3%B6r%C3%BCnt%C3%BCs%C3%BC%20(427).png" >
+<img src="https://github.com/Furkanatsan/GelecekVarlikPatikaFinalProject/blob/main/Ekran%20G%C3%B6r%C3%BCnt%C3%BCs%C3%BC%20(431).png" >
+   
+   
